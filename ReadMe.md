@@ -1,4 +1,4 @@
-# Software: ProcessMan (2016)
+# Software: ProcessMan
 
 This software implements a **Process Manager**.
 
@@ -20,4 +20,4 @@ consists of a sequence of **action-for-subject**, which is a specialisation
 of action.
 
 # Implementation
-This software was developed using the old jDomainApp code base. As such, it may not be using the latest aDSLs and the associated APIs.
+To use JDA.
