@@ -1,0 +1,12 @@
+<tr>
+  <td align="center">{index}</td> 
+  jjs:[
+  	if (domain.isTaskGroupStart())
+  	  output.write("<td rowspan=\"{taskViewRowSpan}\"> {taskInfo} </td>");
+    else
+      output.write("");
+  ]: 
+  <td>{actionInfo}</td> 
+  <td align="center">{userName}</td>   
+  <td align="center">{actionStatus}</td>
+</tr>

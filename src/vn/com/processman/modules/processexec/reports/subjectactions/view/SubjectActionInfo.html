@@ -1,0 +1,11 @@
+<tr>
+  <td align="center">{index}</td> 
+  jjs:[
+  	if (domain.isSubjectGroupStart())
+  	  output.write("<td rowspan=\"{subjectViewRowSpan}\" align=\"center\"> {subjectCode} </td>");
+    else
+      output.write("");
+  ]:
+  <td>{actionInfo}</td>
+  <td align="center">{status}</td>
+</tr>

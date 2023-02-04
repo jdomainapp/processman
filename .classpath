@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="vn/com/processman/modules/processstructure/model/ProcessTask.java|vn/com/processman/modules/processstructure/ModuleProcessTask.java|vn/com/processman/setup/data/expression/TestBooleanExpressions.java|vn/com/processman/modules/processsconstraint/model/function/GetFileInstance.java|vn/com/processman/modules/processsconstraint/model/function/GetInstance.java|vn/com/processman/modules/processsconstraint/model/function/GetSubjectInstance.java|vn/com/processman/modules/processsconstraint/ModuleFileExpression.java|vn/com/processman/modules/processsconstraint/ModuleSubjectExpression.java|vn/com/processman/modules/processsconstraint/model/function/RetrieveSubjectInstance.java|vn/com/processman/modules/processmanager/processapplication/forsubject/controller/command/OpenProcess4SubjectApplicationsCommand.java|vn/com/processman/modules/processmanager/processapplication/forsubject/controller/command/CreateSubjectTaskObjectCommand.java|vn/com/processman/modules/processmanager/forsubject/ModuleProcess4SubjectManager.java" kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DomainApp"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

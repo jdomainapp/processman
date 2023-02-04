@@ -1,0 +1,27 @@
+<tr>
+  <td align="center">{index}</td> 
+  jjs:[
+  	if (domain.isActionGroupStart())
+  	  output.write("<td rowspan=\"{actionViewRowSpan}\"> {actionInfo} </td>");
+    else
+      output.write("");
+  ]:
+  jjs:[
+  	if (!domain.isAggregated())
+  	  output.write("<td align=\"center\"> {subjectCode} </td>");
+    else
+      output.write("<td bgcolor=\"#ffff99\" colspan=\"2\"> &nbsp; </td>");
+  ]:
+  jjs:[
+  	if (domain.isUserGroupStart())
+  	  output.write("<td rowspan=\"{userViewRowSpan}\" align=\"center\"> {userName} </td>");
+    else
+      output.write("");
+  ]:   
+  jjs:[
+  	if (domain.isAggregated())
+  	  output.write("<td bgcolor=\"#ffff99\" align=\"center\">{status}</td>");
+    else
+      output.write("<td align=\"center\">{status}</td>");      
+  ]:  
+</tr>

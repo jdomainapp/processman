@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="templates/styles/auto_12.css"
+<title></title>
+<meta charset="UTF-8">
+</head>
+<body>
+<table id="title" align="center">
+<tbody><tr align=center valign=center>
+    <td align="left"><img src="images/logo.png" alt=""/></td>
+      <td><b><span style="font-size:150%">BÁO CÁO KẾT QUẢ CÔNG VIỆC TRONG HỌC KÌ<br>
+                                    {orgUnit} - Đại Học Hà Nội</span></td>
+  </tr>
+</tbody>
+</table>
+
+<table id="subtitle" align="center">
+<tbody>
+  <tr><td>Học kì: {semester} - {year}</td></tr>
+  <tr><td>Tên truy cập của người sử dụng: {userLogin}</td></tr>
+</tbody>
+</table>
+
+<table id="data" align="center">	
+<tbody>
+<tr>
+  <th width=20>TT</th> <th>Nhiệm vụ</th> <th>Tên đầu việc</th> <th>Người thực hiện</th> <th>Kết quả</th>
+</tr>
+{userActionInfos}
+</tbody>
+</table>
+
+</body>
+</html>
