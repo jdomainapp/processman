@@ -160,18 +160,24 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.5.1");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds = null;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = genAction5_5_1PreConds(dodm, act, funcCurrentSubject);
-    
-    // post-conditions: Nil
-    //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = genAction5_5_1PreConds(dodm, act, funcCurrentSubject);
+      
+      // post-conditions: Nil
+      //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -302,18 +308,24 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.5.2");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
-    
-    // post-conditions
-    List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
-    
-    List<BooleanExpression> allConds = preConds;
-    allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
+      
+      // post-conditions
+      List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
+      
+      allConds = preConds;
+      allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -330,18 +342,24 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.5.3");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
-    
-    // post-conditions
-    //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
+      
+      // post-conditions
+      //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -357,19 +375,24 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.5.4");
+    List<BooleanExpression> allConds;
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
-    
-    // pre-conditions
-    List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
-    
-    // post-conditions
-    //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
+      
+      // post-conditions
+      //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -386,19 +409,25 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.6.1");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = new ArrayList<>();
-    preConds.add(genPrevSubjectTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject));
-    
-    // post-conditions: Nil
-    //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = new ArrayList<>();
+      preConds.add(genPrevSubjectTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject));
+      
+      // post-conditions: Nil
+      //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -415,19 +444,25 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.7.1");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = new ArrayList<>();
-    preConds.add(genSubjectTaskOfPriorTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject, "5.5"));
-    
-    // post-conditions: Nil
-    //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = new ArrayList<>();
+      preConds.add(genSubjectTaskOfPriorTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject, "5.5"));
+      
+      // post-conditions: Nil
+      //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -444,18 +479,24 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.7.2");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
-    
-    // post-conditions
-    //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = genActionDependencyPreCond(dodm, act, funcCurrentSubject);
+      
+      // post-conditions
+      //List<BooleanExpression> postConds = genActiveSubjectActionOutputPostCond(dodm, act);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }
@@ -473,19 +514,25 @@ public class BooleanExpressionGenerator extends DataObjectGenerator<BooleanExpre
     // the action object
     final Action4Subject act = dom.retrieveObject(Action4Subject.class, Action4Subject.A_code, Op.EQ, "5.8.1");
     
-    // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
-    // this subject is needed to evaluate some of the expressions (below)
-    final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+    List<BooleanExpression> allConds;
     
-    // pre-conditions
-    List<BooleanExpression> preConds = new ArrayList<>();
-    preConds.add(genPrevSubjectTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject));
-    
-    // post-conditions: Nil
-    //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
-    
-    List<BooleanExpression> allConds = preConds;
-    //allConds.addAll(postConds);
+    if (act != null) {
+      // a shared function to obtain the current subject from the *active* derived action of act (that is being performed by user) 
+      // this subject is needed to evaluate some of the expressions (below)
+      final Function funcCurrentSubject = new AttribValue(act, Action4Subject.A_activeSubject);
+      
+      // pre-conditions
+      List<BooleanExpression> preConds = new ArrayList<>();
+      preConds.add(genPrevSubjectTaskOfSameSubjectPreCond(dodm, act, funcCurrentSubject));
+      
+      // post-conditions: Nil
+      //List<BooleanExpression> postConds = genAction5_5_1PostConds(dodm, act, funcCurrentSubject);
+      
+      allConds = preConds;
+      //allConds.addAll(postConds);
+    } else {
+      allConds = new ArrayList<>();
+    }
     
     return allConds;
   }

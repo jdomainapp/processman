@@ -55,13 +55,18 @@ import vn.com.processman.modules.teaching.ModuleTeaching;
 import vn.com.processman.modules.teaching.ModuleTeachingBySemester;
 import vn.com.processman.modules.teaching.subjectbysem.ModuleSubjectBySemesterManager;
 import vn.com.processman.modules.teaching.subjectbysem.ModuleSubjectBySemesterViewer;
-//import vn.com.processman.setup.data.dsecurity.RolePerfProcesses;
-//import vn.com.processman.setup.data.processapplication.OrgUnits;
-//import vn.com.processman.setup.data.processdeliverables.Subjects;
-//import vn.com.processman.setup.data.processstructure.Action4Subjects;
-//import vn.com.processman.setup.data.processstructure.Actions;
-//import vn.com.processman.setup.data.processstructure.Processes;
-//import vn.com.processman.setup.data.processstructure.Task4Subjects;
+import vn.com.processman.setup.data.dsecurity.DomainUsers;
+import vn.com.processman.setup.data.dsecurity.RolePerfProcesses;
+import vn.com.processman.setup.data.dsecurity.Roles;
+import vn.com.processman.setup.data.dsecurity.UserRoles;
+import vn.com.processman.setup.data.processapplication.OrgUnits;
+import vn.com.processman.setup.data.processdeliverables.FileWrappers;
+import vn.com.processman.setup.data.processdeliverables.Subjects;
+import vn.com.processman.setup.data.processstructure.Action4Subjects;
+import vn.com.processman.setup.data.processstructure.Action4SubjectsWoutRoles;
+import vn.com.processman.setup.data.processstructure.Actions;
+import vn.com.processman.setup.data.processstructure.Processes;
+import vn.com.processman.setup.data.processstructure.Task4Subjects;
 
 /**
  * @overview 
@@ -158,29 +163,28 @@ import vn.com.processman.modules.teaching.subjectbysem.ModuleSubjectBySemesterVi
 //      Roles.class,
 //      DomainUsers.class,
 //      UserRoles.class,
-      
-      // organisation 
-      // ducmle 20230207: where are these data definition class files?
-//      OrgUnits.class,
 //      
+//      // organisation 
+//      // ducmle 20230207: where are these data definition class files?
+//      OrgUnits.class,
 //      //
 //      Processes.class,
 //      //Tasks.class,
 //      Task4Subjects.class, 
 //      Actions.class,
+//    
+//      // choose ONE of the following 2 data classes
 //      Action4Subjects.class, 
-//      //Action4SubjectsWoutRoles.class,
+//      Action4SubjectsWoutRoles.class,
+//      
 //      //
 //      Subjects.class 
-      //,SubjectBySemesters.class 
-      //,FileWrappers.class 
-      //,SubjectTasks.class, SubjectActions.class
-      //
-      //,ProcessApplications.class
+//      ,FileWrappers.class 
+//      
 //      ,RolePerfProcesses.class
     }
     ,securityDesc=@SecurityDesc(
-      isEnabled=true // true: to initialise security schema
+      isEnabled=false // true: to initialise security schema
       ,domainSecurityDesc= DomainSecurityClass.class
     )
 )
