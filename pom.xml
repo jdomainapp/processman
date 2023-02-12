@@ -54,7 +54,13 @@
     <artifactId>jda-dcsl</artifactId>
     <version>${jda.version}</version>
   </dependency>
-
+  <!--JDA-mbsl: a.k.a AGL-->
+  <dependency>
+    <groupId>jda.modules</groupId>
+    <artifactId>jda-mbsl</artifactId>
+    <version>${jda.version}</version>
+  </dependency>
+  
   <!-- IN-MEMORY JAVA COMPILER -->
   <dependency>
     <groupId>org.mdkt.compiler</groupId>

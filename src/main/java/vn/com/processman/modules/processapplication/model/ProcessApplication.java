@@ -33,7 +33,7 @@ public class ProcessApplication {
   private int id;
   private static int idCounter = 0;
   
-  /**association {@link OrgUnit#Assoc_OrgUnitAndProcessApplication}*/
+  /** association {@link OrgUnit#Assoc_OrgUnitAndProcessApplication} */
   @DAssoc(ascName = OrgUnit.Assoc_OrgUnitAndProcessApplication, role = "processApplication", 
       ascType = AssocType.One2Many, endType = AssocEndType.Many, 
       associate = @Associate(type = OrgUnit.class, cardMin = 1, cardMax = 1))

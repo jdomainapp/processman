@@ -19,5 +19,6 @@ subject-by-semester is called **task-for-subject**. Each task-for-subject
 consists of a sequence of **action-for-subject**, which is a specialisation
 of action.
 
-# Implementation
-To use JDA.
+# Design
+
+1. Use AGL to implement activity-based modules: ProcessApplication
