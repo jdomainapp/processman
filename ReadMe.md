@@ -1,4 +1,5 @@
 # Software: ProcessMan
+***Version 1.0***: Original code (refactored to use JDA)
 
 This software implements a **Process Manager**.
 
@@ -20,4 +21,3 @@ consists of a sequence of **action-for-subject**, which is a specialisation
 of action.
 
 # Implementation
-To use JDA.
