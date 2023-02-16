@@ -100,12 +100,10 @@ If user choose process-for-subject then there are 3 steps, in which the second s
 ## Module: ProcessExecution
 **Type**: Decisional, Sequential, Forked, Merged, Join
 
-
-1. [Decisional] User choose to **execute** a normal process or process-for-subject
-
-2. [Forked, Sequential, Join] Each task of the selected process is initiated
-	- tasks and their actions are performed in sequence, as specified by precedence
-	- tasks/actions that have the same previous task/action (resp.) are executed concurrently. There are two cases of the execution: merged and forked.
-		- [Forked] All Tasks/Actions of a Join node must be completed (with an output) before the Join is completed
-		- [Merged] Completion of Any Task/Action of a Merge node leads to completion of the Merge node
+General execution flow of a process is as follows. 
+- Each task of the selected process is initiated
+- Tasks and their actions are performed in sequence, as specified by precedence
+- Tasks/actions that have the same previous task/action (resp.) are executed concurrently. There are two cases of the execution: merged and forked.
+  - [Forked] All Tasks/Actions of a Join node must be completed (with an output) before the Join is completed
+  - [Merged] Completion of Any Task/Action of a Merge node leads to completion of the Merge node
 
