@@ -61,6 +61,7 @@ Works similarly to `ProcessApplicationManager` except that in **step 2**, it use
 
 **Main flow: Decisional, Sequential, Merge**
 
+Merge node: `<M1>`
 ```
 START -> 1 -> 2 ---------------------------------------------------------------------------<M1>---> END
            -> 3 -> [found applicant?] -[N]> -> [more applicant?] -[Y]>  -> [ended?] -[Y]> (<M1>)
@@ -71,16 +72,19 @@ START -> 1 -> 2 ----------------------------------------------------------------
                                                                          -[N]> (3)
 ```
 **(4): Fork & Join**
+
 ```
-START .-> Prepare interview -------------------------------------------------------------------------------------------|
+START .-> Book the room -----------------------------------------------------------------------------------------------|
       |                                                                                                                |-> Create interview event
       .-> Request available time slots -> (Interviewer) Review time slots -> Send available slots --|                  |
                                       |                                                            |-> Receive slots --|
                                       -> (Interviewee) Review time slots -> Send available slots --|
 ```
+
 **(8): Fork & Join**
+
 ```
- START .-> Prepare contract ------------------------------------------------------------------------|
+ START .-> Prepare the contract --------------------------------------------------------------------|
        |                                                                                            | -> Send contract -> Sign -> END
        .-> Request for supporting documents -> (Applicant) prepare documents -> Receive documents --|
 ```
@@ -88,11 +92,10 @@ START .-> Prepare interview ----------------------------------------------------
 **Type**: Decisional & Sequential
 
 1. Decisional: 
-Allows user to choose whether to **apply** a normal process or a process for subject.
+allows user to choose whether to **apply** a normal process or a process for subject.
 If user choose process-for-subject then there are 3 steps, in which the second step is to choose a subject. Otherwise, there are only 2 steps as described in the previous section.
 
-2. Sequential: 
-- The 2 or 3 steps of the main procedure are performed in sequence.
+2. Sequential: the steps of the main procedure are performed in sequence.
 
 ## Module: ProcessExecution
 **Type**: Decisional, Sequential, Forked, Merged, Join
