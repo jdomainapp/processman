@@ -21,4 +21,88 @@ of action.
 
 # Design
 
-1. Use AGL to implement activity-based modules: ProcessApplication
+Use AGL to implement activity-based modules.
+
+## None-AGL design
+### Module: ProcessApplicationManager
+This module aims to apply a given `Process` (e.g. Course Planning) to an `OrgUnit` (e.g. Department of IT) in a given semester of a year. The application involves the following steps:
+
+1. [User] Selects the `Process` and `OrgUnit` and specifies the year and semester
+   1. System: creates a `ProcessApplication` with the specified details
+2. [System] Copies the specified Process's structure to be referenced by the new `ProcessApplication`
+   - `vn.com.processman.modules.processmanager.processapplication.controller.command.CreateNewProcessApplicationCommand`
+
+### Module: Process4SubjectApplicationManager
+Works similarly to `ProcessApplicationManager` except that in **step 2**, it uses the following, more specialised, data command to copy the `Task4Subject` structure to the new `Process4SubjectApplication`:
+- `vn.com.processman.modules.processmanager.processapplication.forsubject.controller.command.CreateNewProcess4SubjectCommand`
+
+## AGL-based design
+
+## Module: ProcessManager
+
+**Type**: Sequential
+
+1. Create Process
+2. Create Tasks
+	- allow multiple Tasks to have the same previous Task and thus they can be executed concurrently
+	
+3. Create Actions
+	- allow multiple Actions to have the same previous Action and thus they can be executed concurrently
+
+**Process Example: Teacher Recruitment**
+1. Request for recruitment (what position, how many, description)
+2. Advertise the position
+3. Screen applications for the position
+4. Schedule an applicant interview
+5. Interview an applicant
+6. Conduct demo-teaching for an applicant
+7. Make hiring decision with the applicant
+8. Sign contract with the qualified applicant
+
+**Main flow: Decisional, Sequential, Merge**
+
+```
+START -> 1 -> 2 ---------------------------------------------------------------------------<M1>---> END
+           -> 3 -> [found applicant?] -[N]> -> [more applicant?] -[Y]>  -> [ended?] -[Y]> (<M1>)
+                                                                                    -[N]> (3)
+                                                                 -[N]>  -> ([ended?])
+                                      -[Y]> -> 4 -> 5 -> [interview ok?] -[Y]> 6 -> 7 -> [hired] -[Y]> 8 
+                                                                                                 -[N]> (3)
+                                                                         -[N]> (3)
+```
+**(4): Fork & Join**
+```
+START .-> Prepare interview -------------------------------------------------------------------------------------------|
+      |                                                                                                                |-> Create interview event
+      .-> Request available time slots -> (Interviewer) Review time slots -> Send available slots --|                  |
+                                      |                                                            |-> Receive slots --|
+                                      -> (Interviewee) Review time slots -> Send available slots --|
+```
+**(8): Fork & Join**
+```
+ START .-> Prepare contract ------------------------------------------------------------------------|
+       |                                                                                            | -> Send contract -> Sign -> END
+       .-> Request for supporting documents -> (Applicant) prepare documents -> Receive documents --|
+```
+## Module: ProcessApplicationManager
+**Type**: Decisional & Sequential
+
+1. Decisional: 
+Allows user to choose whether to **apply** a normal process or a process for subject.
+If user choose process-for-subject then there are 3 steps, in which the second step is to choose a subject. Otherwise, there are only 2 steps as described in the previous section.
+
+2. Sequential: 
+- The 2 or 3 steps of the main procedure are performed in sequence.
+
+## Module: ProcessExecution
+**Type**: Decisional, Sequential, Forked, Merged, Join
+
+
+1. [Decisional] User choose to **execute** a normal process or process-for-subject
+
+2. [Forked, Sequential, Join] Each task of the selected process is initiated
+	- tasks and their actions are performed in sequence, as specified by precedence
+	- tasks/actions that have the same previous task/action (resp.) are executed concurrently. There are two cases of the execution: merged and forked.
+		- [Forked] All Tasks/Actions of a Join node must be completed (with an output) before the Join is completed
+		- [Merged] Completion of Any Task/Action of a Merge node leads to completion of the Merge node
+

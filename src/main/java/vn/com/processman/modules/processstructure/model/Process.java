@@ -443,6 +443,10 @@ public class Process {
     }
   }
 
+  // ducmle: 20230215
+  @DOpt(type = DOpt.Type.Getter)
+  public Object getProcessExec() { return null; }
+  
   /**
    * @requires minVal != null /\ maxVal != null
    * @effects update the auto-generated value of attribute <tt>attrib</tt>,
